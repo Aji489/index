@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOUGO</title>
+    <style>
+        .buttons button:hover {
+            background-color: #480e6d;
+        }
+        .buttons button {
+    background-color: #fad1d1;
+    color: #ab1278;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 26px;
+    cursor: pointer;
+    position: relative;
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+     top: 40%;
+}
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            
+        }
+
+        .image1 {
+            position: relative;
+            height: 100vh;
+        }
+
+        img {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .askout {
+            display: flex;
+            justify-content: center;
+            margin: 40px;
+        }
+
+        .askout p {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            text-align: center;
+            font-size: 20px;
+            background: linear-gradient(135deg, #d387e2 0%, #c05133 100%);
+            border: none;
+            border-radius: 30px;
+            padding: 65px 60px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            width: fit-content;
+            margin-top: 60px;
+        }
+        .why {
+            display: flex;
+            justify-content: center;
+            margin: 60px;
+        }
+    </style>
+</head>
+<body>s
+    <div class="askout" id="question">
+        <p>⊹♡ Est ce que tu m'aimerais toujours si j'étais un caillou ? (´｡• ◡ •｡`) ♡ </p> 
+        <p> (le non n'est pas une option) </p> 
+    </div>
+    <div class="image1">
+         <img id="catImage" src="https://i.pinimg.com/736x/49/dc/1d/49dc1d657112d8b23eb4fda87bdd8cfe.jpg" alt="CUTE CAT" width="400" height="400">
+    </div>
+    <div class="buttons">
+        <button id="no-button" onclick="moveButton()">ε(´｡•᎑•`)っ 💕Oui</button>
+        
+    </div>
+
+    <script>
+       let count = 0; 
+        function moveButton() { 
+            const noButton = document.getElementById("no-button");
+        const maxWidth = window.innerWidth - noButton.offsetWidth;
+        const maxHeight = window.innerHeight - noButton.offsetHeight;
+
+          
+
+        const randomX = Math.max(0, Math.floor(Math.random() * maxWidth));
+        const randomY = Math.max(0, Math.floor(Math.random() * maxHeight));
+        noButton.style.position = "absolute";
+        noButton.style.left = randomX + "px";
+        noButton.style.top = randomY + "px";
+
+            const img = document.getElementById('catImage');
+            img.src = 'https://i.pinimg.com/564x/5c/ba/f5/5cbaf50a51fb25a8d06958ae2884c575.jpg'; 
+            const askout = document.getElementById("question");
+                askout.textContent = "???Pourquoi tu ne cliques pas sur le OUI???";
+            count++;
+
+             if (count>3)
+            {
+                document.getElementById("no-button").remove();
+                const askout = document.getElementById("question");
+                askout.textContent = "💕💕OUIIII, merci mon amour je n'ai jamais douter de toi💕💕";
+                const img= document.getElementById('catImage');
+                img.src = 'C:/websites/images/caillou.jpg'; // Remplacez par votre chemin absolu
+
+            }
+            else if (count>2)
+            {
+                const img = document.getElementById('catImage');
+                img.src = 'https://i.pinimg.com/564x/20/9b/03/209b038e4445ce36e050cacb6fdfb971.jpg'; 
+                const askout = document.getElementById("question");
+                askout.textContent = "Donc c'est comme ça ? C'est fini entre nous.";
+
+            }
+            else if (count>1)
+            {
+               const img = document.getElementById('catImage');
+               img.src='https://i.pinimg.com/736x/49/4b/87/494b871fde23bb26a33fb29ec56c1539.jpg';
+               const askout = document.getElementById("question");
+                askout.textContent = "J'attend toujours...";
+            }
+            
+            
+            
+        }
+
+        function showMessage(message) {
+            alert(message);
+        }
+    
+    </script>
+    
+</body>
+</html>
